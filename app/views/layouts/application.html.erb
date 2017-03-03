@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PushNotification</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<% if user_signed_in? %>
+	  	<nav class="navbar navbar-toggleable-md navbar-light bg-faded navbar-inverse bg-primary">
+			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			  <a class="navbar-brand" href="/">Demo</a>
+
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <ul class="navbar-nav mr-auto">
+			      <li class="nav-item active">
+			        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+			      </li>
+			      <li class="nav-item active">
+			        <a class="nav-link" href="<%= home_about_path %>">About</a>
+			      </li>
+			    </ul>
+			    <ul class="nav nav-tabs">
+					  <li class="nav-item dropdown">
+					    <a class="nav-link dropdown-toggle navbar-text" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome, <%= current_user.email %></a>
+					    <div class="dropdown-menu">
+					    	<%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+					    </div>
+					  </li>
+					</ul>
+			  </div>
+			</nav>
+		<% end %>
+    <%= yield %>
+  </body>
+</html>

@@ -9,6 +9,7 @@ App.push_notifications = App.cable.subscriptions.create "PushNotificationsChanne
     console.log "received"
     Push.create data.title,
       body: data.description,
+      icon: data.icon_url
       timeout: 4000,
       onClick: ->
         window.focus()

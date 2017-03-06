@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get 'home/index'
   get 'home/about'
-  get 'ping/:id', to: 'home#ping', as: :user_ping
+  post 'ping_home/:id', to: 'home#ping_to_home', as: :user_ping_to_home
+  post 'ping_about/:id', to: 'home#ping_to_about', as: :user_ping_to_about
 
   devise_for :users
 

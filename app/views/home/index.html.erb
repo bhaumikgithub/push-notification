@@ -1,9 +1,10 @@
-<ul class="list-group">
+<ul class="list-group" style="width: 50%;">
 	<% @users.each do |user| %>
-	  <li class="list-group-item">
+	  <li class="list-group-item justify-content-between">
 	  	<%= user.email %>
-	  	<span class="pull-right">
-	  		<%= link_to "Ping", user_ping_path(user), class: "pull-right" %>
+	  	<span class="row">
+	  		<%= button_to "Ping to home", user_ping_to_home_path(user), class: "btn btn-success", form_class: "col-md-6" %>
+	  		<%= button_to "Ping to about", user_ping_to_about_path(user), class: "btn btn-info", form_class: "col-md-6" %>
 	  		</span>
 	  </li>
 	<% end %>
